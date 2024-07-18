@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Cleanup') { 
             steps{
-                sh 'docker stop $(docker ps -q) || true && docker rm $(docker ps -a -q) || true'
+                sh 'docker stop $(docker ps -aq) || true && docker rm $(docker ps -a -aq) || true'
             }
         }
         stage('Deploy') {
